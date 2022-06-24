@@ -21,7 +21,10 @@ python -m venv .[name of enviroment]
 ```command line
 python install -r requirements.txt
 ```
-
+##### Whenever you need to update requirements.txt
+```command line
+pip freeze > requirements.txt
+```
 
 ## Use
 
