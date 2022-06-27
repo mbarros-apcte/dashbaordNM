@@ -4,9 +4,10 @@ SIDEBAR_STYLE = {
 	'left': 0,
 	'bottom': 0,
 	'width': '15%',
-	"height": "95%",
+	#"height": "95%",
 	'padding': '20px 10px',
-	'background-color': '#f8f9fa'
+	'background-color': '#f8f9fa',
+	'overflow': 'scroll'
 }
 
 DASHBOARD_STYLE = {
@@ -15,7 +16,7 @@ DASHBOARD_STYLE = {
 	'left': 0,
 	'bottom': 0,
 	'width': '15%',
-	"height": "80%",
+	#"height": "80%",
 	'padding': '20px 10px',
 	'background-color': '#f8f9fa'
 }
@@ -55,7 +56,7 @@ INPUT_dcc_STYLE = {
     'margin-left': '3%',
     'margin-right': '4%',
     'padding': '20px 10p',
-    'width': '12%'
+    'width': '40px'
 }
 
 INPUT_rb_STYLE = {

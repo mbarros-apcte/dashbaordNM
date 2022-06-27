@@ -28,8 +28,6 @@ def get_sidebar_layout():
 			get_cntrl_scorring_spat_agg(),
 			get_clstr_based_input(),
 			add_submit_button()
-
-
 		],
 		style=get_sidebar_style(),
 	)

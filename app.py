@@ -1,21 +1,3 @@
-# from flask import Flask, render_template
-
-# app = Flask(__name__)
-
-
-# @app.route("/")
-# def index():
-#     return "This is the index (:"
-
-# @app.route("/dash")
-# def dash():
-#     return "This will soon be the dash"
-
-
-# if __name__ ==  "__main__":
-#     app.run(host="0.0.0.0")
-
-
 from flask import Flask
 import dash
 import os
@@ -26,7 +8,7 @@ from dash import html
 from dash.dependencies import Input, Output, State
 import logging
 
-from _data_collection.utils.get_filenames import get_current_pickle_precom_file                 ###  
+from _data_collection.utils.get_filenames import get_current_pickle_precom_file  
 from callbacks.clbk_all_updates import clbk_all_updates
 from callbacks.clbk_scorer_don import clb_scorer_distribution
 from dash_layout.layout_comp_dashboard import get_dashboard_layout
@@ -36,7 +18,6 @@ from utils.utils import fetch_precomp_data
 from dash_layout.layout_comp_sidebar import get_sidebar_layout
 
 
-
 # logging
 log_name = "logfile.log"
 logging.basicConfig(filename=log_name, format='%(asctime)s  %(levelname)-8s %(message)s', datefmt='%d-%b-%y %H:%M:%S',
@@ -44,7 +25,6 @@ logging.basicConfig(filename=log_name, format='%(asctime)s  %(levelname)-8s %(me
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.info("Script is starting...\n")
-
 
 server = Flask(__name__)
 # initiate app
@@ -128,19 +108,16 @@ def generate_chart(x, y):
     return fig
 
 
-
-
 # Routes (make sure server is routing.)
 @server.route("/dash/")
 def dash():
-    # return app.run_server()
     print("MB :: Dash is running")
     return "This will soon be the dash"
 
 @server.route("/")
 def index():
-    print("MB :: Index is ruuning")
-    return "This is the index from the server (: ***"
+    print("MB :: Index is running")
+    return "Index Page from web."
 
 if __name__ == '__main__':
-    server.run(host="0.0.0.0")  #it does not seem to be working if not host="0.0.0.0"
+    server.run(host="0.0.0.0")  # Please use "0.0.0.0" to work on Azure. 
