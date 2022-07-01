@@ -1,24 +1,23 @@
 SIDEBAR_STYLE = {
-	'position': 'fixed',
 	'top': 0,
 	'left': 0,
 	'bottom': 0,
-	'width': '15%',
-	#"height": "95%",
-	'padding': '20px 10px',
+	'max-width': '350px',
+	#'width': '19%',
+	"height": "100vh",
+	'padding': '0 0 0 25px',
 	'background-color': '#f8f9fa',
 	'overflow': 'scroll'
 }
 
 DASHBOARD_STYLE = {
-	'position': 'fixed',
-	'top': 0,
-	'left': 0,
-	'bottom': 0,
-	'width': '15%',
-	#"height": "80%",
-	'padding': '20px 10px',
-	'background-color': '#f8f9fa'
+	"align": "left",
+	"width": '100%',
+	'max-width': '400px',
+	"height": "100vh",
+	'background-color': '#f8f9fa',
+	'overflow': 'scroll',
+	'padding': '25px'
 }
 
 CONTENT_STYLE = {
@@ -26,6 +25,15 @@ CONTENT_STYLE = {
 	#'height': '100%',
     'margin-right': '3%',
     'padding': '20px 10p'
+}
+
+CENTRAL_MAP_STYLE = {
+	#'position': 'fixed',
+	'top': 0,
+	'margin-left': '0%',
+	#"align": "left",
+	#"width": "100%",
+	"height": "100%"
 }
 
 TEXT_STYLE = {
@@ -56,7 +64,7 @@ INPUT_dcc_STYLE = {
     'margin-left': '3%',
     'margin-right': '4%',
     'padding': '20px 10p',
-    'width': '40px'
+    'width': '50px'
 }
 
 INPUT_rb_STYLE = {
@@ -91,3 +99,9 @@ def get_input_lab_style_short():
 
 def get_input_dcc_style():
 	return INPUT_dcc_STYLE
+
+def get_central_map_style():
+	return CENTRAL_MAP_STYLE
+
+def get_dashboard_style():
+	return DASHBOARD_STYLE

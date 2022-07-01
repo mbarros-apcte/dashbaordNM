@@ -29,7 +29,7 @@ def get_sidebar_layout():
 			get_clstr_based_input(),
 			add_submit_button()
 		],
-		style=get_sidebar_style(),
+		style=get_sidebar_style()
 	)
 	return sidebar
 

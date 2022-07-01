@@ -6,22 +6,22 @@ from dash import dcc
 # STP
 def get_stp_control_cmpnnts():
     stp_res = [
-    html.Label('Number of weekday plans', style=get_input_lab_style()),
+    html.Label('Number of weekday plans:', style=get_input_lab_style()),
     dcc.Input(id='week_plans', value=0.67, maxLength=5, style=get_input_dcc_style()),
 
-    html.Label('Number of weekend plans', style=get_input_lab_style()),
+    html.Label('Number of weekend plans:', style=get_input_lab_style()),
     dcc.Input(id='wknd_plans', value=1.1, maxLength=5, style=get_input_dcc_style()),
 
-    html.Label('Number of TOD points over a weekday', style=get_input_lab_style()),
+    html.Label('Number of TOD points over a weekday:', style=get_input_lab_style()),
     dcc.Input(id='week_tods', value=0.7, maxLength=5, style=get_input_dcc_style()),
 
-    html.Label('Number of TOD points over a weekend', style=get_input_lab_style()),
+    html.Label('Number of TOD points over a weekend:', style=get_input_lab_style()),
     dcc.Input(id='wknd_tods', value=0.9, maxLength=5, style=get_input_dcc_style()),
 
-    html.Label('% of time that is running free (weekday)', style=get_input_lab_style()),
+    html.Label('% of time that is running free (weekday):', style=get_input_lab_style()),
     dcc.Input(id='week_free', value=-0.55, maxLength=5, style=get_input_dcc_style()),
 
-    html.Label('% of time that is running free (weekend)', style=get_input_lab_style()),
+    html.Label('% of time that is running free (weekend):', style=get_input_lab_style()),
     dcc.Input(id='wknd_free', value=-0.42, maxLength=5, style=get_input_dcc_style()),
     html.Br(),html.Br()]
 

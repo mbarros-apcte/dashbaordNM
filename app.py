@@ -16,7 +16,7 @@ from dash_layout.layout_comp_dashboard import get_dashboard_layout
 from dash_layout.design_layout_components import design_layout_components
 from utils.utils import fetch_precomp_data
 from dash_layout.layout_comp_sidebar import get_sidebar_layout
-
+import json 
 
 # logging
 log_name = "logfile.log"
@@ -32,11 +32,14 @@ app = dash.Dash(
     __name__,
     server=server,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
-    url_base_pathname = '/dash/'
+    url_base_pathname = '/'
 )
 
 # get the precomputed values
 pickle_fnm = get_current_pickle_precom_file()
+
+
+# Where Model "ends"
 prec_data = fetch_precomp_data(pickle_fnm)  # precoumputed in prepare_variables() method
 df_scorer_dstrbn = prec_data["scorer_distribution"]
 
@@ -45,10 +48,80 @@ updated_user_inputs = dict()
 
 # get app layout components
 sidebar, central_map, dashboard = design_layout_components(prec_data)
-app.layout = html.Div(children=[sidebar, central_map, dashboard])
+# app.layout = html.Div(children=[sidebar, central_map, dashboard]) # MB :: Original
+# app.layout = 
+
+navbar = dbc.Navbar(
+    dbc.Container(
+        [
+            html.A(
+                #
+                dbc.Row(
+                    [
+                         dbc.Col(html.Img(src="https://images.plot.ly/logo/new-branding/plotly-logomark.png", height="30px")),
+                        dbc.Col(dbc.NavbarBrand("NAVBAR", className = "ms-2", id="navb"),)
+                    ],
+                    align="center",
+                    className='g-0'
+                ),
+                style={"textDecorantion": 'none'},
+            ),
+            dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
+            # dbc.Collapse(
+            #     sidebar,#??
+            #     id="navbar-collapse",
+            #     is_open=False,
+            #     navbar=True
+            # ),
+        ]
+    ),
+    color="dark",
+    dark=True,
+)
+
+displayType = 'block'
+
+content = dbc.Row(
+    [
+        dbc.Col(sidebar, style={'display': displayType}, id="sidebar"),
+        dbc.Col(central_map, width="100%"),#={'order': '99'}),
+        dbc.Col(dashboard, width="auto")#{'order': '5'})
+    ]
+    ,style={
+        'height': 'auto',
+        #'widht': '100%'
+    },
+    id="content-container"
+)
+
+view = dbc.Col(
+    [
+        navbar,
+        content
+    ]
+)
+
+app.layout = view#content
 
 # app authentication
 # auth = dash_auth.BasicAuth(app,{'apcte_dash': "test_dash", "test2": "test2"})
+
+@app.callback(
+    Output(component_id="sidebar", component_property="style"),
+    [Input(component_id="navbar-toggler", component_property="n_clicks"),
+    Input(component_id="sidebar", component_property="style")],
+)
+def update_style1(n, a):
+    print("MB :: n: ", n)
+    print("MB :: a: ", a)
+    if n > 0:
+        if a == {'display': 'block'}:
+            print(' ---------------------------- a is 1')
+            return {'display': 'none'}
+        elif a == {'display': 'none'}:
+            print(' ---------------------------- a is 2')
+            return {'display': 'block'}
+    return a
 
 
 @app.callback(
@@ -91,9 +164,11 @@ def update_graph_1(n_clicks,
             logger.info(f"user input {k} has value {v},")
 
         map_fig, dshbr_fig1, dshbr_fig2, sig_df = clbk_all_updates(prec_data, user_inputs)
-
+        print("MB :: Next line is ** sig_df ** ")
+        print(sig_df)
         return map_fig, dshbr_fig1, dshbr_fig2
-
+    print("MB :: Next line is ** prec_data **")
+    #print(prec_data["multi_layer_fig"])
     return prec_data["multi_layer_fig"], {}, {}
 
 
@@ -102,8 +177,8 @@ def update_graph_1(n_clicks,
     [Input("x-axis", "value"),
      Input("y-axis", "value")])
 def generate_chart(x, y):
-    logger.info(f"keys of updated dicts are {list(updated_user_inputs.keys())}\n "
-                f"vals of updated dicts are {list(updated_user_inputs.values())}")
+    # logger.info(f"keys of updated dicts are {list(updated_user_inputs.keys())}\n "
+    #             f"vals of updated dicts are {list(updated_user_inputs.values())}")
     fig = clb_scorer_distribution(x, y, df_scorer_dstrbn, updated_user_inputs)
     return fig
 
@@ -120,4 +195,4 @@ def index():
     return "Index Page from web."
 
 if __name__ == '__main__':
-    server.run(host="0.0.0.0")  # Please use "0.0.0.0" to work on Azure. 
+    server.run(host="0.0.0.0", debug=True)  # Please use "0.0.0.0" to work on Azure. 

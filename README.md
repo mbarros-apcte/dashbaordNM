@@ -40,7 +40,7 @@ flask run
 
 ## Observartions
 
-When running the server in the _app.py_, please run it with host 0.0.0.0
+When running the server in the `app.py`, please run it with host 0.0.0.0
 
 ```python
 if __name__ == '__main__':
