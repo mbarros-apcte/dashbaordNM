@@ -31,7 +31,7 @@ from callbacks.clbk_all_updates import clbk_all_updates
 from callbacks.clbk_scorer_don import clb_scorer_distribution
 from dash_layout.layout_comp_dashboard import get_dashboard_layout
 
-from dash_layout.design_layout_components import design_layout_components
+from dash_layout.design_layout_components import design_layout_components, design_navbar
 from utils.utils import fetch_precomp_data
 from dash_layout.layout_comp_sidebar import get_sidebar_layout
 
@@ -47,12 +47,13 @@ logger.info("Script is starting...\n")
 
 
 server = Flask(__name__)
+server.config["CACHE_TYPE"] = "null"
 # initiate app
 app = dash.Dash(
     __name__,
     server=server,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
-    url_base_pathname = '/dash/'
+    url_base_pathname = '/'
 )
 
 # get the precomputed values
@@ -65,7 +66,24 @@ updated_user_inputs = dict()
 
 # get app layout components
 sidebar, central_map, dashboard = design_layout_components(prec_data)
-app.layout = html.Div(children=[sidebar, central_map, dashboard])
+
+navbar = design_navbar()
+
+app.layout = html.Div(
+    [
+        navbar,
+        html.Div(
+            dbc.Row(
+                [sidebar, central_map, dashboard],
+                style={
+                    "height": "calc(100vh - 55px)"
+                }
+            ),
+            # children=[sidebar, central_map, dashboard],
+            className="container-fluid"
+        )
+    ]
+)
 
 # app authentication
 # auth = dash_auth.BasicAuth(app,{'apcte_dash': "test_dash", "test2": "test2"})
@@ -128,19 +146,9 @@ def generate_chart(x, y):
     return fig
 
 
-
-
-# Routes (make sure server is routing.)
-@server.route("/dash/")
-def dash():
-    # return app.run_server()
-    print("MB :: Dash is running")
-    return "This will soon be the dash"
-
 @server.route("/")
 def index():
-    print("MB :: Index is ruuning")
-    return "This is the index from the server (: ***"
+    print("MB :: In Index.")
 
 if __name__ == '__main__':
     server.run(host="0.0.0.0")  #it does not seem to be working if not host="0.0.0.0"

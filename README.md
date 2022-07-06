@@ -9,17 +9,17 @@ Dashboard Project
 
 ##### Create Virtual Enviroment
 ```command line
-python -m venv .[name of enviroment]
+python -m venv .env
 ```
 
 ##### Activate Virtual Enviroment
 ```command line
-.[name of enviroment]\Scripts\activate
+.env\Scripts\activate
 ```
 
 #### Install Libraries
 ```command line
-python install -r requirements.txt
+pip install -r requirements.txt
 ```
 ##### Whenever you need to update requirements.txt
 ```command line
@@ -31,4 +31,11 @@ pip freeze > requirements.txt
 Run Application
 ```command line
 flask run
+```
+
+#### Azure deployment
+Make sure you have variable app running with port '0.0.0.0' in your `app.py` file
+
+```python
+server.run(host="0.0.0.0") 
 ```

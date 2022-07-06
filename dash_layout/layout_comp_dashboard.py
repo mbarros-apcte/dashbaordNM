@@ -43,6 +43,12 @@ def get_dashboard_layout(prec_data):
 			#dcc.Graph(id='dash_fig3', figure=test_fig3, style={'margin-left':f'{a}%', "align":"left", "width":f'{b}%', 'background-color': '#f8f9fa'}),
 			#dcc.Graph(id='dash_fig4', figure=test_fig1, style={'margin-left': f'{a}%', "align": "left", "width": f'{b}%','background-color': '#f8f9fa'}),
 		],
-		style={'margin-left':'73%', "align": "left", "width": c, "height": d, 'background-color': '#f8f9fa'} #'position': 'fixed'
+		# style={'margin-left':'73%', "align": "left", "width": c, "height": d, 'background-color': '#f8f9fa'} #'position': 'fixed'
+		className="col",
+		style={
+			"padding-left": "0px",
+			"height": '100%',
+			'overflow-y': 'scroll'
+		}
 	)
 	return dashboard

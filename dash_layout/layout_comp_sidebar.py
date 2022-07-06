@@ -31,7 +31,12 @@ def get_sidebar_layout():
 
 
 		],
-		style=get_sidebar_style(),
+		className="col g-0",
+		style = {
+			"padding-right": "0px",
+			"height": '100%',
+			'overflow-y': 'scroll'
+		}
 	)
 	return sidebar
 

@@ -1,12 +1,12 @@
 SIDEBAR_STYLE = {
-	'position': 'fixed',
-	'top': 0,
-	'left': 0,
-	'bottom': 0,
-	'width': '15%',
-	"height": "95%",
-	'padding': '20px 10px',
-	'background-color': '#f8f9fa'
+	# 'position': 'fixed',
+	# 'top': 0,
+	# 'left': 0,
+	# 'bottom': 0,
+	# 'width': '15%',
+	# "height": "95%",
+	# 'padding': '20px 10px',
+	# 'background-color': '#f8f9fa'
 }
 
 DASHBOARD_STYLE = {
