@@ -1,20 +1,20 @@
-06-Jul-22 11:57:52  INFO     Script is starting...
+06-Jul-22 12:08:55  INFO     Script is starting...
 
-06-Jul-22 11:57:53  INFO      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-06-Jul-22 11:57:53  INFO     127.0.0.1 - - [06/Jul/2022 11:57:53] "GET / HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_dash-dependencies HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_favicon.ico?v=2.0.0 HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_dash-component-suites/dash/dcc/dash_core_components.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_dash-component-suites/dash/dcc/dash_core_components-shared.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_dash-component-suites/dash/html/dash_html_components.min.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:54  INFO     127.0.0.1 - - [06/Jul/2022 11:57:54] "GET /_dash-component-suites/dash/dash_table/bundle.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:55  INFO     127.0.0.1 - - [06/Jul/2022 11:57:55] "GET /_dash-layout HTTP/1.1" 200 -
-06-Jul-22 11:57:56  INFO     keys of updated dicts are []
+06-Jul-22 12:08:56  INFO      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET / HTTP/1.1" 200 -
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET /_dash-dependencies HTTP/1.1" 200 -
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET /_favicon.ico?v=2.0.0 HTTP/1.1" 200 -
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET /_dash-component-suites/dash/dcc/dash_core_components.js.map HTTP/1.1" 200 -
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET /_dash-component-suites/dash/dcc/dash_core_components-shared.js.map HTTP/1.1" 200 -
+06-Jul-22 12:08:58  INFO     127.0.0.1 - - [06/Jul/2022 12:08:58] "GET /_dash-component-suites/dash/html/dash_html_components.min.js.map HTTP/1.1" 200 -
+06-Jul-22 12:08:59  INFO     127.0.0.1 - - [06/Jul/2022 12:08:59] "GET /_dash-component-suites/dash/dash_table/bundle.js.map HTTP/1.1" 200 -
+06-Jul-22 12:08:59  INFO     127.0.0.1 - - [06/Jul/2022 12:08:59] "GET /_dash-layout HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     keys of updated dicts are []
  vals of updated dicts are []
-06-Jul-22 11:57:56  INFO     127.0.0.1 - - [06/Jul/2022 11:57:56] "GET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
-06-Jul-22 11:57:56  INFO     127.0.0.1 - - [06/Jul/2022 11:57:56] "GET /_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1" 200 -
-06-Jul-22 11:57:56  INFO     127.0.0.1 - - [06/Jul/2022 11:57:56] "GET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
-06-Jul-22 11:57:56  INFO     127.0.0.1 - - [06/Jul/2022 11:57:56] "GET /_dash-component-suites/dash/dcc/async-dropdown.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:56  INFO     127.0.0.1 - - [06/Jul/2022 11:57:56] "GET /_dash-component-suites/dash/dcc/async-graph.js.map HTTP/1.1" 200 -
-06-Jul-22 11:57:57  INFO     127.0.0.1 - - [06/Jul/2022 11:57:57] "POST /_dash-update-component HTTP/1.1" 200 -
-06-Jul-22 11:57:57  INFO     127.0.0.1 - - [06/Jul/2022 11:57:57] "POST /_dash-update-component HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     127.0.0.1 - - [06/Jul/2022 12:09:00] "GET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     127.0.0.1 - - [06/Jul/2022 12:09:00] "GET /_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     127.0.0.1 - - [06/Jul/2022 12:09:00] "GET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     127.0.0.1 - - [06/Jul/2022 12:09:00] "GET /_dash-component-suites/dash/dcc/async-dropdown.js.map HTTP/1.1" 200 -
+06-Jul-22 12:09:00  INFO     127.0.0.1 - - [06/Jul/2022 12:09:00] "GET /_dash-component-suites/dash/dcc/async-graph.js.map HTTP/1.1" 200 -
+06-Jul-22 12:09:01  INFO     127.0.0.1 - - [06/Jul/2022 12:09:01] "POST /_dash-update-component HTTP/1.1" 200 -
+06-Jul-22 12:09:01  INFO     127.0.0.1 - - [06/Jul/2022 12:09:01] "POST /_dash-update-component HTTP/1.1" 200 -
