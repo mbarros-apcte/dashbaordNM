@@ -3,7 +3,7 @@ from dash_layout.layout_comp_central_map import get_central_map
 from dash_layout.layout_comp_dashboard import get_dashboard_layout
 from dash_layout.layout_comp_sidebar import get_sidebar_layout
 import dash_bootstrap_components as dbc
-from dash import html
+from dash import html, dcc
 
 def design_layout_components(prec_data):
     # sidebar (left)
@@ -45,7 +45,8 @@ def design_navbar():
             ),
             dbc.Container(
                 [
-                    
+                    html.Button("Download CSV - TEST", id="btn_csv",className="btn btn-secondary"),
+                    dcc.Download(id="download-dataframe-csv"),
                     # dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
                 ]
             )

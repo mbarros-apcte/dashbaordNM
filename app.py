@@ -34,7 +34,7 @@ from dash_layout.layout_comp_dashboard import get_dashboard_layout
 from dash_layout.design_layout_components import design_layout_components, design_navbar
 from utils.utils import fetch_precomp_data
 from dash_layout.layout_comp_sidebar import get_sidebar_layout
-
+from utils.user_inputs import get_predefined_user_inputs
 
 
 # logging
@@ -47,7 +47,6 @@ logger.info("Script is starting...\n")
 
 
 server = Flask(__name__)
-server.config["CACHE_TYPE"] = "null"
 # initiate app
 app = dash.Dash(
     __name__,
@@ -87,7 +86,6 @@ app.layout = html.Div(
 
 # app authentication
 # auth = dash_auth.BasicAuth(app,{'apcte_dash': "test_dash", "test2": "test2"})
-
 
 @app.callback(
     [Output('main_fig', 'figure'), Output('dash_fig1', 'figure'), Output('dash_fig2', 'figure')],
@@ -145,6 +143,22 @@ def generate_chart(x, y):
     fig = clb_scorer_distribution(x, y, df_scorer_dstrbn, updated_user_inputs)
     return fig
 
+
+''' Download CSV Dataframe
+
+'''
+@app.callback(
+    Output("download-dataframe-csv", "data"),
+    Input("btn_csv", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    ### CHANGE IT vvv
+    input_weights = get_predefined_user_inputs(spat_agg="section-level")
+    map_fig, fig1, fig2, sig_df = clbk_all_updates(prec_data, input_weights)
+    ### CHANGE IT ^^^
+    
+    return dcc.send_data_frame(sig_df.to_csv, "mydf0.csv")
 
 @server.route("/")
 def index():
